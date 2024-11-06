@@ -3,7 +3,7 @@
   hosts: localhost
   vars:
     telegram_bot_token: "6526199311:AAEBxdoWY99WNNHwv43_-mUc6cP-qyEGltE"
-    chat_id: "1702952746"
+    chat_id: "2018308195"
   tasks:
     - name: Obter a data e hora atual
       set_fact:
