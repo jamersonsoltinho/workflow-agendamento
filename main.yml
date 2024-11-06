@@ -1,0 +1,21 @@
+---
+- name: Enviar data e hora para o Telegram
+  hosts: localhost
+  vars:
+    telegram_bot_token: "6526199311:AAEBxdoWY99WNNHwv43_-mUc6cP-qyEGltE"
+    chat_id: "1702952746"
+  tasks:
+    - name: Obter a data e hora atual
+      set_fact:
+        current_datetime: "{{ lookup('pipe', 'date \"+%Y-%m-%d %H:%M:%S\"') }}"
+
+    - name: Enviar mensagem para o Telegram
+      uri:
+        url: "https://api.telegram.org/bot{{ telegram_bot_token }}/sendMessage"
+        method: POST
+        body_format: json
+        body:
+          chat_id: "{{ chat_id }}"
+          text: "A data e hora atual é: {{ current_datetime }}"
+        status_code: 200
+        validate_certs: no
