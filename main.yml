@@ -3,7 +3,7 @@
   vars:
     telegram_bot_token: "7709438233:AAHhbzrkAUjxEJwCptMvuL3RyZSdZ8Vqw2Q"
     chat_id: "2018308195"
-    message_text: "Mensagem de teste enviada via Ansible para o Telegram!"
+    message_text: "Mensagem enviada via Ansible em {{ ansible_date_time.date }} às {{ ansible_date_time.time }}."
   tasks:
     - name: Enviar mensagem para o chat
       uri:
