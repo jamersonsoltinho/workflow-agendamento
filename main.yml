@@ -12,8 +12,5 @@
         headers:
           Content-Type: "application/json"
         body_format: raw
-        body: '{
-          "chat_id": "{{ chat_id }}",
-          "text": "{{ message_text }}"
-        }'
+        body: "{{ {'chat_id': chat_id, 'text': message_text} | to_json }}"
         return_content: yes
